@@ -51,3 +51,13 @@
 .interactive-marquee-item:hover .interactive-marquee-name {
   color: var(--text-primary);
 }
+
+.tech-logo {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+.invert-logo {
+  filter: invert(1) brightness(1.5);
+}
