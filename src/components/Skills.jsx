@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTypewriter } from '../hooks/useTypewriter';
+import InteractiveMarquee from './InteractiveMarquee';
 import developerImg from '../assets/developer_hero.jpg';
 import './Skills.css';
 
@@ -57,16 +58,7 @@ export default function Skills() {
 
           <h3 className="skills__stack-heading">Tech Stack</h3>
           
-          <div className="skills__marquee-wrapper">
-            <div className="skills__marquee">
-              {[...techIcons, ...techIcons].map((tech, index) => (
-                <div className="skills__3d-card" key={index}>
-                  <div className="skills__3d-icon">{tech.icon}</div>
-                  <span className="skills__3d-name">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <InteractiveMarquee items={techIcons} />
         </div>
       </div>
     </section>
