@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Achievements.css';
 
 const achievements = [
@@ -32,18 +33,22 @@ const achievements = [
 ];
 
 export default function Achievements() {
+  const [ref, isVisible] = useScrollReveal();
+
   return (
-    <section className="achievements section" id="achievements">
-      <h2 className="section__title">Achievements</h2>
-      <p className="section__subtitle">
-        Milestones and accomplishments in competitive programming.
-      </p>
+    <section className="achievements section" id="achievements" ref={ref}>
+      <div className={`achievements__header ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}>
+        <h2 className="section__title">Achievements</h2>
+        <p className="section__subtitle">
+          Milestones and accomplishments in competitive programming.
+        </p>
+      </div>
       <div className="achievements__grid">
-        {achievements.map((achievement) => (
+        {achievements.map((achievement, index) => (
           <div
-            className="achievements__card card"
+            className={`achievements__card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
             key={achievement.title}
-            style={{ '--ach-accent': achievement.accent }}
+            style={{ '--ach-accent': achievement.accent, '--reveal-delay': `${index * 0.12}s` }}
           >
             <div className="achievements__icon">{achievement.icon}</div>
             <div className="achievements__info">
