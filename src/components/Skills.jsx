@@ -49,21 +49,23 @@ export default function Skills() {
             <span className="cursor blink">|</span>
           </p>
 
-          <div className="skills__marquee-wrapper">
-            <div className="skills__marquee">
-              {[...techIcons, ...techIcons].map((tech, index) => (
-                <div className="skills__squircle" key={index}>
-                  <div className="skills__squircle-icon">{tech.icon}</div>
-                  <span className="skills__squircle-name">{tech.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
           <div className="skills__bullets">
             {bullets.map((bullet, i) => (
               <p className="skills__bullet" key={i}>{bullet}</p>
             ))}
+          </div>
+
+          <h3 className="skills__stack-heading">Tech Stack</h3>
+          
+          <div className="skills__marquee-wrapper">
+            <div className="skills__marquee">
+              {[...techIcons, ...techIcons].map((tech, index) => (
+                <div className="skills__3d-card" key={index}>
+                  <div className="skills__3d-icon">{tech.icon}</div>
+                  <span className="skills__3d-name">{tech.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
