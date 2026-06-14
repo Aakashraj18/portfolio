@@ -1,0 +1,77 @@
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0d1117; /* Dark theme background */
+  overflow: hidden;
+  z-index: 0; /* Stays behind everything */
+  pointer-events: none; /* Allows clicking through */
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.6;
+  animation: drift 20s infinite ease-in-out alternate;
+}
+
+/* Deep Purple Orb */
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.8), transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-duration: 25s;
+}
+
+/* Neon Blue Orb */
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.6), transparent 70%);
+  bottom: -20%;
+  right: -10%;
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+/* Vibrant Cyan Orb */
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.5), transparent 70%);
+  top: 40%;
+  left: 60%;
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+
+/* Subtle Pink Orb */
+.orb-4 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255, 107, 157, 0.4), transparent 70%);
+  top: 60%;
+  left: -5%;
+  animation-duration: 28s;
+  animation-delay: -10s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(15vw, -10vh) scale(1.1);
+  }
+  66% {
+    transform: translate(-10vw, 15vh) scale(0.9);
+  }
+  100% {
+    transform: translate(5vw, 5vh) scale(1.2);
+  }
+}

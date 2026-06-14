@@ -7,13 +7,19 @@ import Achievements from './components/Achievements';
 import Education from './components/Education';
 import GithubStats from './components/GithubStats';
 import Contact from './components/Contact';
+import AnimatedBackground from './components/AnimatedBackground';
+import { motion } from 'framer-motion';
 import './App.css';
 
 export default function App() {
   return (
     <div className="app">
+      <AnimatedBackground />
       <Header />
-      <main>
+      <motion.main
+        animate={{ y: [0, -12, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+      >
         <About />
         <Skills />
         <Projects />
@@ -22,7 +28,7 @@ export default function App() {
         <Education />
         <GithubStats />
         <Contact />
-      </main>
+      </motion.main>
     </div>
   );
 }
