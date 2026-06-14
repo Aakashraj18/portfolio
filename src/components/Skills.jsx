@@ -1,7 +1,8 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { useTypewriter } from '../hooks/useTypewriter';
 import InteractiveMarquee from './InteractiveMarquee';
-import developerImg from '../assets/developer_hero.jpg';
+import codingVideo from '../assets/codingperson.webm';
 import './Skills.css';
 
 const techIcons = [
@@ -28,33 +29,63 @@ const bullets = [
   '⚡ Experienced with real-time applications using Socket.IO',
 ];
 
+// Framer motion variants for the bullet list
+const listVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Stagger effect for items
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 50 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function Skills() {
   const [ref, isVisible] = useScrollReveal();
-  
-  // Subtitle typing effect
-  const subtitleText = useTypewriter('FULL STACK DEVELOPER WHO LOVES TO BUILD AND SOLVE', 40, isVisible ? 300 : 0);
 
   return (
     <section className="skills section" id="skills" ref={ref}>
-      <div className={`skills__content ${isVisible ? 'skills__content--visible' : ''}`}>
+      <div className="skills__hero-container">
         
-        {/* Original Developer Illustration */}
-        <div className="skills__illustration">
-          <img src={developerImg} alt="Developer illustration" className="skills__lottie" />
+        {/* Left Side: Video container */}
+        <div className="skills__video-wrapper">
+          <div className="skills__video-glow"></div>
+          <div className="skills__video-container">
+            <video 
+              src={codingVideo} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className="skills__video"
+            />
+          </div>
         </div>
 
+        {/* Right Side: Content & Text Animations */}
         <div className="skills__info">
           <h2 className="skills__heading">What I do</h2>
-          <p className="skills__subtitle">
-            {subtitleText}
-            <span className="cursor blink">|</span>
-          </p>
+          <h3 className="skills__subheading">FULL STACK DEVELOPER WHO LOVES TO BUILD AND SOLVE</h3>
 
-          <div className="skills__bullets">
+          <motion.ul 
+            className="skills__bullets-list"
+            variants={listVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             {bullets.map((bullet, i) => (
-              <p className="skills__bullet" key={i}>{bullet}</p>
+              <motion.li key={i} variants={itemVariants} className="skills__bullet-item">
+                <span className="skills__bullet-icon">⚡</span>
+                <span className="skills__bullet-text">{bullet.replace('⚡ ', '')}</span>
+              </motion.li>
             ))}
-          </div>
+          </motion.ul>
         </div>
       </div>
 

@@ -1,56 +1,135 @@
-/* --- Skills (Developerfolio Style) --- */
-.skills__content {
+/* --- What I Do Section --- */
+.skills__hero-container {
   display: flex;
   align-items: center;
-  gap: var(--space-4xl);
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
-              transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  justify-content: space-between;
+  gap: var(--space-3xl);
+  margin-bottom: 8rem; /* Generous bottom margin before tech stack */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.skills__content--visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Lottie Animation on the left */
-.skills__illustration {
+/* Left Side: Video */
+.skills__video-wrapper {
   flex: 1;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 500px; /* Responsive bounds */
 }
 
-.skills__lottie {
+.skills__video-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 110%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.5) 0%, rgba(108, 99, 255, 0) 70%);
+  filter: blur(40px);
+  z-index: -1;
+  border-radius: 50%;
+  animation: pulseGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+.skills__video-container {
   width: 100%;
-  max-width: 500px;
-  height: auto;
-  filter: drop-shadow(0 10px 30px rgba(108, 99, 255, 0.15));
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
-/* Info on the right */
+.skills__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Right Side: Content */
 .skills__info {
   flex: 1.2;
+  display: flex;
+  flex-direction: column;
 }
 
 .skills__heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 3rem;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-primary);
 }
 
-.skills__subtitle {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
+.skills__subheading {
+  font-size: 1.3rem;
+  font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: var(--space-xl);
-  min-height: 20px; /* prevent layout shift during typing */
+  background: linear-gradient(to right, var(--accent-primary), #00d4aa);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s linear infinite;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.skills__bullets-list {
+  list-style: none;
+  padding: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skills__bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.skills__bullet-icon {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+
+/* Responsive Stack */
+@media (max-width: 992px) {
+  .skills__hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-2xl);
+    margin-bottom: 5rem;
+  }
+
+  .skills__video-wrapper {
+    max-width: 100%;
+    width: 80%;
+  }
+
+  .skills__info {
+    align-items: center;
+  }
+
+  .skills__bullet-item {
+    text-align: left;
+    justify-content: flex-start;
+  }
 }
 
 .skills__stack-heading {
