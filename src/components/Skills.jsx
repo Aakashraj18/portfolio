@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import skillsImg from '../assets/skills_illustration.png';
+import { useTypewriter } from '../hooks/useTypewriter';
+import developerImg from '../assets/developer_hero.jpg';
 import './Skills.css';
 
 const techIcons = [
@@ -30,18 +31,24 @@ const bullets = [
 
 export default function Skills() {
   const [ref, isVisible] = useScrollReveal();
+  
+  // Subtitle typing effect
+  const subtitleText = useTypewriter('FULL STACK DEVELOPER WHO LOVES TO BUILD AND SOLVE', 40, isVisible ? 300 : 0);
 
   return (
     <section className="skills section" id="skills" ref={ref}>
       <div className={`skills__content ${isVisible ? 'skills__content--visible' : ''}`}>
+        
+        {/* Original Developer Illustration */}
         <div className="skills__illustration">
-          <img src={skillsImg} alt="Skills illustration" />
+          <img src={developerImg} alt="Developer illustration" className="skills__lottie" />
         </div>
 
         <div className="skills__info">
           <h2 className="skills__heading">What I do</h2>
           <p className="skills__subtitle">
-            FULL STACK DEVELOPER WHO LOVES TO BUILD AND SOLVE
+            {subtitleText}
+            <span className="cursor blink">|</span>
           </p>
 
           <div className="skills__icons-grid">

@@ -14,18 +14,19 @@
   transform: translateX(0);
 }
 
-/* Illustration on the left */
+/* Lottie Animation on the left */
 .skills__illustration {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.skills__illustration img {
+.skills__lottie {
   width: 100%;
-  max-width: 420px;
+  max-width: 500px;
   height: auto;
-  filter: drop-shadow(0 10px 30px rgba(108, 99, 255, 0.12));
+  filter: drop-shadow(0 10px 30px rgba(108, 99, 255, 0.15));
 }
 
 /* Info on the right */
@@ -47,9 +48,12 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: var(--space-xl);
+  min-height: 20px; /* prevent layout shift during typing */
+  display: flex;
+  align-items: center;
 }
 
-/* Individual tech icon boxes (like developerfolio's Node.js boxes) */
+/* Individual tech icon boxes (Floating animation) */
 .skills__icons-grid {
   display: flex;
   flex-wrap: wrap;
@@ -69,11 +73,15 @@
   border: 1px solid var(--bg-glass-border);
   cursor: default;
   transition: transform var(--transition-spring), box-shadow var(--transition-base), border-color var(--transition-base);
-  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--icon-delay, 0s) both;
+  /* Use popIn first, then fallback to empty string before JS applies floating if needed, but CSS handles it nicely with multiple animations */
 }
 
 .skills__content--visible .skills__icon-box {
-  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--icon-delay, 0s) both;
+  animation: 
+    popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--icon-delay, 0s) both,
+    floatUpDown 3s ease-in-out infinite alternate;
+  /* Add icon-delay to the float so they don't move in sync */
+  animation-delay: var(--icon-delay, 0s), calc(var(--icon-delay, 0s) + 0.5s);
 }
 
 .skills__content:not(.skills__content--visible) .skills__icon-box {
@@ -92,10 +100,16 @@
   }
 }
 
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
 .skills__icon-box:hover {
-  transform: translateY(-6px) scale(1.05);
+  transform: translateY(-10px) scale(1.05) !important; /* Override float */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   border-color: var(--icon-color, var(--accent-primary));
+  animation-play-state: paused;
 }
 
 .skills__icon-emoji {
@@ -140,8 +154,13 @@
     justify-content: center;
   }
 
-  .skills__illustration img {
-    max-width: 280px;
+  .skills__terminal {
+    max-width: 100%;
+    transform: none;
+  }
+  
+  .skills__terminal:hover {
+    transform: translateY(-5px);
   }
 
   .skills__bullets {
