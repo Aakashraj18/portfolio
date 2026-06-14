@@ -36,19 +36,6 @@ export default function GithubStats() {
         </div>
       </div>
 
-      <div 
-        className={`github-stats__contributions card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
-        style={{ '--reveal-delay': '0.5s', marginTop: 'var(--space-2xl)' }}
-      >
-        <h3 className="github-stats__contributions-title">Contributions Calendar</h3>
-        <div className="github-stats__chart-wrapper">
-          <img
-            src={`https://ghchart.rshah.org/6c63ff/${githubUsername}`}
-            alt={`${githubUsername}'s GitHub Contributions`}
-            style={{ width: '100%', maxWidth: '800px', filter: 'brightness(1.2)' }}
-          />
-        </div>
-      </div>
     </section>
   );
 }
