@@ -1,7 +1,6 @@
 # Aakash Kumar Rajak - Portfolio
 
-This repository contains the source code for my personal portfolio website, inspired by the structure of [developerfolio.js.org](https://developerfolio.js.org).
-
+This repository contains the source code for my personal portfolio website.
 ## Project Structure (Planned)
 - About
 - Skills
