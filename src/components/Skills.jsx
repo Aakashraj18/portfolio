@@ -3,10 +3,21 @@ import { useTypewriter } from '../hooks/useTypewriter';
 import developerImg from '../assets/developer_hero.jpg';
 import './Skills.css';
 
-const techStack = [
-  'C++', 'C', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3',
-  'React', 'Node.js', 'Express', 'MongoDB', 'SQL',
-  'Git', 'GitHub', 'Linux', 'VSCode', 'Vite'
+const techIcons = [
+  { name: 'C++', icon: '⚡' },
+  { name: 'C', icon: '🔧' },
+  { name: 'JavaScript', icon: '🟨' },
+  { name: 'TypeScript', icon: '🔷' },
+  { name: 'HTML5', icon: '🌐' },
+  { name: 'CSS3', icon: '🎨' },
+  { name: 'React', icon: '⚛️' },
+  { name: 'Node.js', icon: '🟩' },
+  { name: 'Express', icon: '🚂' },
+  { name: 'MongoDB', icon: '🍃' },
+  { name: 'SQL', icon: '🗄️' },
+  { name: 'Git', icon: '📦' },
+  { name: 'GitHub', icon: '🐙' },
+  { name: 'Vite', icon: '⚡' },
 ];
 
 const bullets = [
@@ -38,16 +49,15 @@ export default function Skills() {
             <span className="cursor blink">|</span>
           </p>
 
-          <div className="skills__tech-grid">
-            {techStack.map((tech, index) => (
-              <span
-                className="skills__tech-badge"
-                key={tech}
-                style={{ '--badge-delay': `${index * 0.05}s` }}
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="skills__marquee-wrapper">
+            <div className="skills__marquee">
+              {[...techIcons, ...techIcons].map((tech, index) => (
+                <div className="skills__squircle" key={index}>
+                  <div className="skills__squircle-icon">{tech.icon}</div>
+                  <span className="skills__squircle-name">{tech.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="skills__bullets">

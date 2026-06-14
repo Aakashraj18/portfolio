@@ -3,10 +3,18 @@ import './AnimatedBackground.css';
 export default function AnimatedBackground() {
   return (
     <div className="animated-background">
-      <div className="orb orb-1"></div>
-      <div className="orb orb-2"></div>
-      <div className="orb orb-3"></div>
-      <div className="orb orb-4"></div>
+      <div className="grid-overlay"></div>
+      
+      {/* Horizontal Data Lines */}
+      <div className="data-line data-line-h h-1"></div>
+      <div className="data-line data-line-h h-2"></div>
+      <div className="data-line data-line-h h-3"></div>
+      
+      {/* Vertical Data Lines */}
+      <div className="data-line data-line-v v-1"></div>
+      <div className="data-line data-line-v v-2"></div>
+      <div className="data-line data-line-v v-3"></div>
+      <div className="data-line data-line-v v-4"></div>
     </div>
   );
 }

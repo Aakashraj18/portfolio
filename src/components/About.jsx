@@ -54,7 +54,7 @@ export default function About() {
             Hi all, I'm Aakash 👋
           </h1>
           <p className="about__description">
-            A passionate Full Stack Developer 🚀 with experience building Web applications
+            A passionate <span className="gradient-text">Full Stack Developer</span> 🚀 with experience building Web applications
             using JavaScript / React / Node.js / MongoDB and the MERN stack. Currently pursuing
             B.Tech in Computer Science at NIT Silchar with a knack for competitive programming
             and solving complex algorithmic problems.
