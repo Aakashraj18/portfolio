@@ -1,82 +1,100 @@
+import heroImg from '../assets/developer_hero.png';
 import './About.css';
+
+const socialLinks = [
+  {
+    href: 'https://github.com/Aakashraj18',
+    label: 'GitHub',
+    color: '#333',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'https://www.linkedin.com/in/aakash-kumar-rajak/',
+    label: 'LinkedIn',
+    color: '#0077b5',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'mailto:akashkrrajak18@gmail.com',
+    label: 'Email',
+    color: '#d14836',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+    ),
+  },
+  {
+    href: 'tel:+919085267322',
+    label: 'Phone',
+    color: '#25d366',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    ),
+  },
+];
 
 export default function About() {
   return (
     <section className="about section" id="about">
       <div className="about__content">
         <div className="about__text">
-          <p className="about__greeting">Hi, my name is</p>
-          <h1 className="about__name">Aakash Kumar Rajak</h1>
-          <h2 className="about__tagline">
-            I build things for the <span className="about__highlight">web</span>.
-          </h2>
+          <h1 className="about__greeting">
+            Hi all, I'm Aakash 👋
+          </h1>
           <p className="about__description">
-            I'm a Computer Science student at{' '}
-            <strong>NIT Silchar</strong> passionate about full-stack development
-            and competitive programming. I specialize in the{' '}
-            <strong>MERN Stack</strong> and love solving complex problems —
-            having solved <strong>1000+ DSA problems</strong> across platforms.
+            A passionate Full Stack Developer 🚀 with experience building Web applications
+            using JavaScript / React / Node.js / MongoDB and the MERN stack. Currently pursuing
+            B.Tech in Computer Science at NIT Silchar with a knack for competitive programming
+            and solving complex algorithmic problems.
           </p>
+
+          <div className="about__socials">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about__social-icon"
+                style={{ '--social-color': link.color }}
+                aria-label={link.label}
+                id={`about-social-${link.label.toLowerCase()}`}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+
           <div className="about__cta">
+            <a href="#contact" className="btn btn--primary" id="about-contact-btn">
+              CONTACT ME
+            </a>
             <a
               href="https://github.com/Aakashraj18"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn--primary"
-              id="about-github-btn"
+              className="btn btn--secondary"
+              id="about-resume-btn"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aakash-kumar-rajak/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--outline"
-              id="about-linkedin-btn"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              LinkedIn
-            </a>
-            <a
-              href="mailto:akashkrrajak18@gmail.com"
-              className="btn btn--outline"
-              id="about-email-btn"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-              </svg>
-              Email
+              SEE MY RESUME
             </a>
           </div>
         </div>
 
-        <div className="about__visual">
-          <div className="about__code-block">
-            <div className="about__code-header">
-              <span className="about__code-dot about__code-dot--red"></span>
-              <span className="about__code-dot about__code-dot--yellow"></span>
-              <span className="about__code-dot about__code-dot--green"></span>
-              <span className="about__code-filename">aakash.js</span>
-            </div>
-            <pre className="about__code-content">
-{`const aakash = {
-  education: "NIT Silchar",
-  degree: "B.Tech CSE",
-  cgpa: 8.11,
-  skills: ["React", "Node.js",
-           "MongoDB", "C++"],
-  loves: ["Coding", "DSA",
-          "Building Products"],
-  problemsSolved: 1000+,
-};`}
-            </pre>
-          </div>
+        <div className="about__image">
+          <img src={heroImg} alt="Developer illustration" />
         </div>
       </div>
     </section>
