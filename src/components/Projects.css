@@ -1,111 +1,107 @@
-/* --- Projects --- */
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: var(--space-lg);
+/* --- Projects (Developerfolio Style) --- */
+.projects__header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
 }
 
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-2xl);
+}
+
+/* Card overrides for projects */
 .projects__card {
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-.projects__card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--card-accent, var(--accent-primary));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-base);
-}
-
-.projects__card:hover::after {
-  transform: scaleX(1);
-}
-
-.projects__card-top {
-  display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-lg);
+  padding: var(--space-2xl);
+  min-height: 380px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.projects__card-folder {
-  color: var(--card-accent, var(--accent-primary));
+.projects__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
 }
 
-.projects__card-links {
-  display: flex;
-  gap: var(--space-sm);
-}
-
-.projects__card-link {
-  color: var(--text-muted);
-  transition: color var(--transition-fast), transform var(--transition-fast);
-  padding: 4px;
-}
-
-.projects__card-link:hover {
-  color: var(--text-primary);
-  transform: translateY(-2px);
+.projects__card-content {
+  margin-bottom: var(--space-2xl);
 }
 
 .projects__card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--space-xs);
-  transition: color var(--transition-fast);
-}
-
-.projects__card:hover .projects__card-title {
-  color: var(--card-accent, var(--accent-primary));
-}
-
-.projects__card-period {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   margin-bottom: var(--space-md);
 }
 
-.projects__card-highlights {
-  list-style: none;
-  margin-bottom: var(--space-lg);
-  flex-grow: 1;
+.projects__repo-icon {
+  color: var(--accent-primary);
 }
 
-.projects__card-highlights li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 0.88rem;
+.projects__card-title h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.projects__card-description {
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
 }
 
-.projects__card-highlights li::before {
-  content: '▹';
-  position: absolute;
-  left: 0;
-  color: var(--card-accent, var(--accent-primary));
-  font-size: 0.9rem;
-}
-
+/* Tech language dots like GitHub */
 .projects__card-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-top: auto;
+  gap: var(--space-md);
 }
 
-@media (max-width: 480px) {
+.projects__tech-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.projects__tech-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+/* Specific colors for specific languages (optional, falling back to primary) */
+.projects__tech-item:nth-child(1) .projects__tech-dot { background-color: var(--accent-primary); }
+.projects__tech-item:nth-child(2) .projects__tech-dot { background-color: var(--accent-secondary); }
+.projects__tech-item:nth-child(3) .projects__tech-dot { background-color: var(--accent-warm); }
+.projects__tech-item:nth-child(4) .projects__tech-dot { background-color: var(--accent-tertiary); }
+.projects__tech-item:nth-child(5) .projects__tech-dot { background-color: #f7df1e; }
+
+.projects__card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.projects__btn {
+  flex: 1;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
   .projects__grid {
     grid-template-columns: 1fr;
   }
