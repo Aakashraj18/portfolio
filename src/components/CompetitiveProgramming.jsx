@@ -3,35 +3,43 @@ import './CompetitiveProgramming.css';
 
 const profiles = [
   {
+    platform: 'LeetCode',
+    username: 'Aakashraj_12',
+    rank: '1000+ Problems Solved',
+    color: '#ffa116',
+    description: 'Consistently solving data structures and algorithm problems to improve problem-solving skills.',
+    stats: [
+      { label: 'Total Solved', value: '1000+' },
+      { label: 'Focus', value: 'Algorithms' },
+      { label: 'Language', value: 'C++' },
+    ],
+    link: 'https://leetcode.com/u/Aakashraj_12/',
+  },
+  {
     platform: 'Codeforces',
+    username: 'Aakashraj18',
     rank: 'Pupil',
     color: '#08a652',
+    description: 'Regular participant in Div. 2 and Div. 3 contests with strong problem-solving abilities under time pressure.',
     stats: [
-      { label: 'Best Contest Rank', value: '3028 / 29,000+' },
-      { label: 'Best Contest', value: 'Round 1031 (Div. 2)' },
+      { label: 'Max Rating', value: 'Pupil' },
+      { label: 'Best Rank', value: '3028 (Div. 2)' },
+      { label: 'Contests', value: 'Active' },
     ],
-    link: 'https://codeforces.com/',
+    link: 'https://codeforces.com/profile/Aakashraj18',
   },
   {
     platform: 'CodeChef',
+    username: 'Aakashraj18',
     rank: '2 Star',
-    color: '#ffcc00',
+    color: '#5b4638',
+    description: 'Participating in rated contests and improving logic building skills.',
     stats: [
-      { label: 'Rating', value: '2 Star' },
-      { label: 'Focus', value: 'Rated Contests' },
+      { label: 'Max Rating', value: '2 Star' },
+      { label: 'Contests', value: 'Active' },
     ],
     link: 'https://www.codechef.com/',
-  },
-  {
-    platform: 'LeetCode',
-    rank: '1000+ Problems',
-    color: '#ffa116',
-    stats: [
-      { label: 'Problems Solved', value: '1000+' },
-      { label: 'Focus', value: 'DSA & Algorithms' },
-    ],
-    link: 'https://leetcode.com/',
-  },
+  }
 ];
 
 export default function CompetitiveProgramming() {
@@ -42,22 +50,28 @@ export default function CompetitiveProgramming() {
       <div className={`cp__header ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}>
         <h2 className="section__title">Competitive Programming</h2>
         <p className="section__subtitle">
-          Consistent participation in rated contests and problem-solving across platforms.
+          My coding profiles across various platforms.
         </p>
       </div>
-      <div className="cp__grid">
+      <div className="cp__list">
         {profiles.map((profile, index) => (
           <a
             href={profile.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`cp__card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
+            className={`cp__profile-card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
             key={profile.platform}
             style={{ '--cp-accent': profile.color, '--reveal-delay': `${index * 0.15}s` }}
           >
-            <h3 className="cp__card-platform">{profile.platform}</h3>
-            <span className="cp__card-rank">{profile.rank}</span>
-            <div className="cp__card-stats">
+            <div className="cp__profile-info">
+              <h3 className="cp__profile-platform">{profile.platform}</h3>
+              <p className="cp__profile-desc">{profile.description}</p>
+              <span className="cp__profile-rank" style={{ color: profile.color }}>
+                {profile.rank}
+              </span>
+            </div>
+            
+            <div className="cp__profile-stats">
               {profile.stats.map((stat) => (
                 <div className="cp__stat" key={stat.label}>
                   <span className="cp__stat-value">{stat.value}</span>
