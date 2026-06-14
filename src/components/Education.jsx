@@ -4,8 +4,9 @@ import './Education.css';
 const educationData = [
   {
     institution: 'National Institute of Technology, Silchar',
-    degree: 'B.Tech in Computer Science and Engineering',
-    period: '2023 - 2027',
+    degree: 'Bachelor of Technology - Computer Science and Engineering',
+    period: 'July 2023 - June 2027',
+    grade: 'CGPA: 8.11',
     logo: '🎓',
     details: [
       'Pursuing core CS subjects including DSA, OOP, OS, and Database Systems.',
@@ -14,21 +15,21 @@ const educationData = [
   },
   {
     institution: 'Kendriya Vidyalaya Narangi, Guwahati',
-    degree: 'Senior Secondary Education (Class XII)',
-    period: 'Graduated 2022',
+    degree: 'Higher Secondary Certificate (HSC)',
+    period: 'July 2020 - June 2022',
+    grade: 'Percentage: 86.8%',
     logo: '🏫',
     details: [
-      'Passed with 91.2%',
       'Focused on Science stream with Mathematics and Computer Science.',
     ],
   },
   {
     institution: 'Kendriya Vidyalaya Narangi, Guwahati',
-    degree: 'Secondary Education (Class X)',
-    period: 'Graduated 2020',
+    degree: 'Secondary School Certificate (SSC)',
+    period: 'July 2010 - June 2020',
+    grade: 'Percentage: 86%',
     logo: '🏫',
     details: [
-      'Passed with 91.8%',
       'Active participant in regional science exhibitions and quizzes.',
     ],
   },
@@ -46,21 +47,27 @@ export default function Education() {
         </p>
       </div>
 
-      <div className="education__timeline">
+      <div className="education__list">
         {educationData.map((item, index) => (
           <div 
-            className={`education__item ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`} 
+            className={`education__card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`} 
             key={item.institution + item.degree}
-            style={{ '--reveal-delay': `${index * 0.2}s` }}
+            style={{ '--reveal-delay': `${index * 0.15}s` }}
           >
-            <div className="education__logo-container">
-              <span className="education__logo">{item.logo}</span>
+            <div className="education__card-header">
+              <div className="education__logo-box">
+                <span className="education__logo">{item.logo}</span>
+              </div>
+              <div className="education__title-box">
+                <h3 className="education__inst">{item.institution}</h3>
+                <h4 className="education__degree">{item.degree}</h4>
+              </div>
             </div>
-            <div className="education__content card">
-              <h3 className="education__inst">{item.institution}</h3>
+            
+            <div className="education__card-body">
               <div className="education__meta">
-                <span className="education__degree">{item.degree}</span>
                 <span className="education__period">{item.period}</span>
+                <span className="education__grade">{item.grade}</span>
               </div>
               <ul className="education__details">
                 {item.details.map((detail, i) => (

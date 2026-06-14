@@ -5,11 +5,11 @@ const profiles = [
   {
     platform: 'LeetCode',
     username: 'Aakashraj_12',
-    rank: '1000+ Problems Solved',
+    rank: '523 Problems Solved',
     color: '#ffa116',
     description: 'Consistently solving data structures and algorithm problems to improve problem-solving skills.',
     stats: [
-      { label: 'Total Solved', value: '1000+' },
+      { label: 'Total Solved', value: '523' },
       { label: 'Focus', value: 'Algorithms' },
       { label: 'Language', value: 'C++' },
     ],
@@ -22,7 +22,7 @@ const profiles = [
     color: '#08a652',
     description: 'Regular participant in Div. 2 and Div. 3 contests with strong problem-solving abilities under time pressure.',
     stats: [
-      { label: 'Max Rating', value: 'Pupil' },
+      { label: 'Max Rating', value: '1278 (Pupil)' },
       { label: 'Best Rank', value: '3028 (Div. 2)' },
       { label: 'Contests', value: 'Active' },
     ],
