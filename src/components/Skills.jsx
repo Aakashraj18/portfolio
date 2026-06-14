@@ -3,23 +3,10 @@ import { useTypewriter } from '../hooks/useTypewriter';
 import developerImg from '../assets/developer_hero.jpg';
 import './Skills.css';
 
-const techIcons = [
-  { name: 'C++', icon: '⚡', color: '#00599C' },
-  { name: 'C', icon: '🔧', color: '#A8B9CC' },
-  { name: 'JavaScript', icon: '🟨', color: '#f7df1e' },
-  { name: 'TypeScript', icon: '🔷', color: '#3178c6' },
-  { name: 'HTML5', icon: '🌐', color: '#e34f26' },
-  { name: 'CSS3', icon: '🎨', color: '#1572b6' },
-  { name: 'React', icon: '⚛️', color: '#61dafb' },
-  { name: 'Node.js', icon: '🟩', color: '#339933' },
-  { name: 'Express', icon: '🚂', color: '#000000' },
-  { name: 'MongoDB', icon: '🍃', color: '#47a248' },
-  { name: 'SQL', icon: '🗄️', color: '#4479a1' },
-  { name: 'Git', icon: '📦', color: '#f05032' },
-  { name: 'GitHub', icon: '🐙', color: '#6e5494' },
-  { name: 'Linux', icon: '🐧', color: '#fcc624' },
-  { name: 'VSCode', icon: '💻', color: '#007acc' },
-  { name: 'Vite', icon: '⚡', color: '#646cff' },
+const techStack = [
+  'C++', 'C', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3',
+  'React', 'Node.js', 'Express', 'MongoDB', 'SQL',
+  'Git', 'GitHub', 'Linux', 'VSCode', 'Vite'
 ];
 
 const bullets = [
@@ -51,17 +38,15 @@ export default function Skills() {
             <span className="cursor blink">|</span>
           </p>
 
-          <div className="skills__icons-grid">
-            {techIcons.map((tech, index) => (
-              <div
-                className="skills__icon-box"
-                key={tech.name}
-                style={{ '--icon-delay': `${index * 0.05}s`, '--icon-color': tech.color }}
-                title={tech.name}
+          <div className="skills__tech-grid">
+            {techStack.map((tech, index) => (
+              <span
+                className="skills__tech-badge"
+                key={tech}
+                style={{ '--badge-delay': `${index * 0.05}s` }}
               >
-                <span className="skills__icon-emoji">{tech.icon}</span>
-                <span className="skills__icon-name">{tech.name}</span>
-              </div>
+                {tech}
+              </span>
             ))}
           </div>
 

@@ -53,46 +53,55 @@
   align-items: center;
 }
 
-/* Individual tech icon boxes (Floating animation) */
-.skills__icons-grid {
+/* Professional Tech Badges */
+.skills__tech-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: var(--space-2xl);
 }
 
-.skills__icon-box {
-  display: flex;
-  flex-direction: column;
+.skills__tech-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 12px 10px 8px;
-  min-width: 72px;
-  border-radius: var(--radius-md);
-  background: var(--bg-card);
-  border: 1px solid var(--bg-glass-border);
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
   cursor: default;
-  transition: transform var(--transition-spring), box-shadow var(--transition-base), border-color var(--transition-base);
-  /* Use popIn first, then fallback to empty string before JS applies floating if needed, but CSS handles it nicely with multiple animations */
+  transition: all var(--transition-base);
 }
 
-.skills__content--visible .skills__icon-box {
+.skills__content--visible .skills__tech-badge {
   animation: 
-    popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--icon-delay, 0s) both,
-    floatUpDown 3s ease-in-out infinite alternate;
-  /* Add icon-delay to the float so they don't move in sync */
-  animation-delay: var(--icon-delay, 0s), calc(var(--icon-delay, 0s) + 0.5s);
+    popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) var(--badge-delay, 0s) both,
+    floatUpDown 4s ease-in-out infinite alternate;
+  animation-delay: var(--badge-delay, 0s), calc(var(--badge-delay, 0s) + 0.5s);
 }
 
-.skills__content:not(.skills__content--visible) .skills__icon-box {
+.skills__content:not(.skills__content--visible) .skills__tech-badge {
   animation: none;
   opacity: 0;
+}
+
+.skills__tech-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.25);
+  animation-play-state: paused;
 }
 
 @keyframes popIn {
   0% {
     opacity: 0;
-    transform: scale(0.5) translateY(20px);
+    transform: scale(0.8) translateY(10px);
   }
   100% {
     opacity: 1;
@@ -102,27 +111,7 @@
 
 @keyframes floatUpDown {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-.skills__icon-box:hover {
-  transform: translateY(-10px) scale(1.05) !important; /* Override float */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  border-color: var(--icon-color, var(--accent-primary));
-  animation-play-state: paused;
-}
-
-.skills__icon-emoji {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
-.skills__icon-name {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  text-align: center;
-  white-space: nowrap;
+  100% { transform: translateY(-4px); }
 }
 
 /* Bullet points */
