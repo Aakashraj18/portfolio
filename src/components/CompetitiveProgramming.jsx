@@ -5,12 +5,12 @@ const profiles = [
   {
     platform: 'LeetCode',
     username: 'Aakashraj_12',
-    rank: '523 Problems Solved',
+    rank: '520+ Problems Solved',
     color: '#ffa116',
     description: 'Consistently solving data structures and algorithm problems to improve problem-solving skills.',
     stats: [
-      { label: 'Total Solved', value: '523' },
-      { label: 'Focus', value: 'Algorithms' },
+      { label: 'Total Solved', value: '520+' },
+      { label: 'Focus', value: 'DSA & Algo' },
       { label: 'Language', value: 'C++' },
     ],
     link: 'https://leetcode.com/u/Aakashraj_12/',
@@ -22,8 +22,8 @@ const profiles = [
     color: '#08a652',
     description: 'Regular participant in Div. 2 and Div. 3 contests with strong problem-solving abilities under time pressure.',
     stats: [
+      { label: 'Total Solved', value: '350+' },
       { label: 'Max Rating', value: '1278 (Pupil)' },
-      { label: 'Best Rank', value: '3028 (Div. 2)' },
       { label: 'Contests', value: 'Active' },
     ],
     link: 'https://codeforces.com/profile/Aakashraj18',
@@ -32,7 +32,7 @@ const profiles = [
     platform: 'CodeChef',
     username: 'Aakashraj18',
     rank: '2 Star',
-    color: '#5b4638',
+    color: '#5b4438ff',
     description: 'Participating in rated contests and improving logic building skills.',
     stats: [
       { label: 'Max Rating', value: '2 Star' },
@@ -70,7 +70,7 @@ export default function CompetitiveProgramming() {
                 {profile.rank}
               </span>
             </div>
-            
+
             <div className="cp__profile-stats">
               {profile.stats.map((stat) => (
                 <div className="cp__stat" key={stat.label}>
