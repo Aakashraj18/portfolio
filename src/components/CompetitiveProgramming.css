@@ -1,0 +1,90 @@
+/* --- Competitive Programming --- */
+.cp__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.cp__card {
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cp__card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--cp-accent) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.cp__card:hover::before {
+  opacity: 0.04;
+}
+
+.cp__card-icon {
+  color: var(--cp-accent);
+  margin-bottom: var(--space-md);
+  display: inline-flex;
+}
+
+.cp__card-platform {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.cp__card-rank {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cp-accent);
+  border: 1px solid var(--cp-accent);
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--space-lg);
+}
+
+.cp__card-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cp__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cp__stat-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cp__stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .cp__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
