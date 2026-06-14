@@ -67,6 +67,22 @@
   animation: shine 3s linear infinite;
 }
 
+.skills__stack-heading.center-heading {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.skills__marquee-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: var(--space-3xl);
+  padding-bottom: var(--space-xl);
+}
+
 /* Bullet points */
 .skills__bullets {
   display: flex;

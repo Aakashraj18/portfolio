@@ -5,20 +5,20 @@ import developerImg from '../assets/developer_hero.jpg';
 import './Skills.css';
 
 const techIcons = [
-  { name: 'C++', icon: '⚡' },
-  { name: 'C', icon: '🔧' },
-  { name: 'JavaScript', icon: '🟨' },
-  { name: 'TypeScript', icon: '🔷' },
-  { name: 'HTML5', icon: '🌐' },
-  { name: 'CSS3', icon: '🎨' },
-  { name: 'React', icon: '⚛️' },
-  { name: 'Node.js', icon: '🟩' },
-  { name: 'Express', icon: '🚂' },
-  { name: 'MongoDB', icon: '🍃' },
-  { name: 'SQL', icon: '🗄️' },
-  { name: 'Git', icon: '📦' },
-  { name: 'GitHub', icon: '🐙' },
-  { name: 'Vite', icon: '⚡' },
+  { name: 'C++', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" className="tech-logo" /> },
+  { name: 'C', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" className="tech-logo" /> },
+  { name: 'JavaScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="tech-logo" /> },
+  { name: 'TypeScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" className="tech-logo" /> },
+  { name: 'HTML5', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" className="tech-logo" /> },
+  { name: 'CSS3', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" className="tech-logo" /> },
+  { name: 'React', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" className="tech-logo" /> },
+  { name: 'Node.js', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" className="tech-logo" /> },
+  { name: 'Express', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express" className="tech-logo invert-logo" /> },
+  { name: 'MongoDB', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="tech-logo" /> },
+  { name: 'SQL', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" className="tech-logo" /> },
+  { name: 'Git', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" className="tech-logo" /> },
+  { name: 'GitHub', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="tech-logo invert-logo" /> },
+  { name: 'Vite', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" alt="Vite" className="tech-logo" /> },
 ];
 
 const bullets = [
@@ -55,11 +55,13 @@ export default function Skills() {
               <p className="skills__bullet" key={i}>{bullet}</p>
             ))}
           </div>
-
-          <h3 className="skills__stack-heading">Tech Stack</h3>
-          
-          <InteractiveMarquee items={techIcons} />
         </div>
+      </div>
+
+      {/* Marquee spanning full width */}
+      <div className={`skills__marquee-section ${isVisible ? 'skills__content--visible' : ''}`}>
+        <h3 className="skills__stack-heading center-heading">Tech Stack</h3>
+        <InteractiveMarquee items={techIcons} />
       </div>
     </section>
   );
