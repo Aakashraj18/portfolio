@@ -1,85 +1,100 @@
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './CompetitiveProgramming.css';
+
+const ExternalIcon = () => (
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+);
 
 const profiles = [
   {
     platform: 'LeetCode',
     username: 'Aakashraj_12',
-    rank: '520+ Problems Solved',
-    color: '#ffa116',
-    description: 'Consistently solving data structures and algorithm problems to improve problem-solving skills.',
+    color: '#FFA116',
     stats: [
-      { label: 'Total Solved', value: '520+' },
-      { label: 'Focus', value: 'DSA & Algo' },
-      { label: 'Language', value: 'C++' },
+      { label: 'RATING', value: '1644' },
+      { label: 'TOTAL SOLVED', value: '520+' },
+      { label: 'FOCUS', value: 'DSA & Algo' },
+      { label: 'LANGUAGE', value: 'C++' },
     ],
     link: 'https://leetcode.com/u/Aakashraj_12/',
   },
   {
     platform: 'Codeforces',
     username: 'Aakashraj18',
-    rank: 'Pupil',
-    color: '#08a652',
-    description: 'Regular participant in Div. 2 and Div. 3 contests with strong problem-solving abilities under time pressure.',
+    color: '#318CE7',
     stats: [
-      { label: 'Total Solved', value: '350+' },
-      { label: 'Max Rating', value: '1278 (Pupil)' },
-      { label: 'Contests', value: 'Active' },
+      { label: 'RANK', value: 'Pupil' },
+      { label: 'MAX RATING', value: '1278' },
+      { label: 'TOTAL SOLVED', value: '350+' },
+      { label: 'STATUS', value: 'Active Contests' },
     ],
     link: 'https://codeforces.com/profile/Aakashraj18',
   },
   {
     platform: 'CodeChef',
     username: 'Aakashraj18',
-    rank: '2 Star',
-    color: '#5b4438ff',
-    description: 'Participating in rated contests and improving logic building skills.',
+    color: '#5B4638',
     stats: [
-      { label: 'Max Rating', value: '2 Star' },
-      { label: 'Contests', value: 'Active' },
+      { label: 'RATING', value: '2 Star' },
+      { label: 'STATUS', value: 'Active Contests' },
     ],
     link: 'https://www.codechef.com/',
   }
 ];
 
 export default function CompetitiveProgramming() {
-  const [ref, isVisible] = useScrollReveal();
-
   return (
-    <section className="cp section" id="competitive-programming" ref={ref}>
-      <div className={`cp__header ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}>
+    <section className="cp section" id="competitive-programming">
+      <motion.div
+        className="cp__header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <h2 className="section__title">Competitive Programming</h2>
         <p className="section__subtitle">
           My coding profiles across various platforms.
         </p>
-      </div>
-      <div className="cp__list">
+      </motion.div>
+
+      <div className="cp__grid">
         {profiles.map((profile, index) => (
-          <a
-            href={profile.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`cp__profile-card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
+          <motion.div
             key={profile.platform}
-            style={{ '--cp-accent': profile.color, '--reveal-delay': `${index * 0.15}s` }}
+            className="cp__glass-card"
+            style={{ '--theme-color': profile.color }}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+            whileHover={{ y: -10, scale: 1.02 }}
           >
-            <div className="cp__profile-info">
-              <h3 className="cp__profile-platform">{profile.platform}</h3>
-              <p className="cp__profile-desc">{profile.description}</p>
-              <span className="cp__profile-rank" style={{ color: profile.color }}>
-                {profile.rank}
-              </span>
+            <div className="cp__card-header">
+              <h3 className="cp__platform-title">{profile.platform}</h3>
+              <a
+                href={profile.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cp__icon-link"
+                style={{ color: profile.color }}
+              >
+                <ExternalIcon />
+              </a>
             </div>
 
-            <div className="cp__profile-stats">
-              {profile.stats.map((stat) => (
-                <div className="cp__stat" key={stat.label}>
-                  <span className="cp__stat-value">{stat.value}</span>
+            <div className="cp__stats-grid">
+              {profile.stats.map((stat, i) => (
+                <div className="cp__stat-item" key={i}>
+                  <span className="cp__stat-value" style={{ color: profile.color }}>
+                    {stat.value}
+                  </span>
                   <span className="cp__stat-label">{stat.label}</span>
                 </div>
               ))}
             </div>
-          </a>
+          </motion.div>
         ))}
       </div>
     </section>
