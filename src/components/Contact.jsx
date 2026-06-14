@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import heroImg from '../assets/developer_hero.png';
+import heroImg from '../assets/developer_hero.jpg';
 import './Contact.css';
 
 const contactInfo = [
