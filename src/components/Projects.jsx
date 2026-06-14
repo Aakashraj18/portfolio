@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Projects.css';
 
 const projects = [
@@ -46,18 +47,22 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [ref, isVisible] = useScrollReveal();
+
   return (
-    <section className="projects section" id="projects">
-      <h2 className="section__title">Projects</h2>
-      <p className="section__subtitle">
-        Some of the things I've built to solve real problems.
-      </p>
+    <section className="projects section" id="projects" ref={ref}>
+      <div className={`projects__header ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}>
+        <h2 className="section__title">Projects</h2>
+        <p className="section__subtitle">
+          Some of the things I've built to solve real problems.
+        </p>
+      </div>
       <div className="projects__grid">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <div
-            className="projects__card card"
+            className={`projects__card card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
             key={project.title}
-            style={{ '--card-accent': project.accent }}
+            style={{ '--card-accent': project.accent, '--reveal-delay': `${index * 0.15}s` }}
           >
             <div className="projects__card-top">
               <div className="projects__card-folder">
