@@ -1,116 +1,129 @@
-/* --- Projects (Developerfolio / GitHub Style) --- */
+/* --- Projects (Horizontal Layout) --- */
 .projects__header {
   text-align: center;
   margin-bottom: var(--space-4xl);
 }
 
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: var(--space-xl);
-}
-
-.projects__card {
+.projects__list {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: var(--space-xl);
-  background: var(--bg-card);
-  border: 1px solid var(--bg-glass-border);
-  border-radius: var(--radius-sm);
-  min-height: 220px;
+  gap: var(--space-3xl);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.projects__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+.projects__horizontal-card {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.projects__horizontal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   border-color: var(--accent-primary);
 }
 
-.projects__card-title {
+.projects__image-container {
+  flex: 0 0 50%;
+  overflow: hidden;
+  background: transparent;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: center; /* keep it vertically centered */
+  justify-content: center;
+  padding: var(--space-xl); /* padding makes the image float nicely inside the card */
+}
+
+.projects__image {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: var(--radius-sm); /* give the image itself subtle rounded corners */
+  transition: transform var(--transition-base);
+}
+
+.projects__horizontal-card:hover .projects__image {
+  transform: scale(1.05);
+}
+
+.projects__content {
+  flex: 1;
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects__content--full {
+  flex: 1 1 100%;
+}
+
+.projects__content-header h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-primary);
   margin-bottom: var(--space-sm);
 }
 
-.projects__repo-icon {
-  fill: var(--text-secondary);
-}
-
-.projects__card-title h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin: 0;
-}
-
-.projects__card-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: var(--space-lg);
-}
-
-.projects__card-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  margin-top: auto;
-}
-
-.projects__card-stats {
+.projects__tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
-.projects__stat-item {
+.projects__tech-tag {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  font-family: var(--font-primary);
-}
-
-.projects__stat-item svg {
-  fill: var(--text-secondary);
+  font-family: var(--font-mono);
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
 }
 
 .projects__lang-color {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   display: inline-block;
 }
 
-.projects__card-actions {
+.projects__desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-2xl);
+  flex-grow: 1;
+}
+
+.projects__actions {
   display: flex;
   gap: var(--space-md);
-  margin-top: var(--space-xs);
+  flex-wrap: wrap;
 }
 
-.projects__link-btn {
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--bg-glass-border);
-  transition: all var(--transition-fast);
-  text-decoration: none;
+.projects__actions .btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
 }
 
-.projects__link-btn:hover {
-  background: rgba(108, 99, 255, 0.1);
-  border-color: var(--accent-primary);
-  color: var(--accent-primary);
-}
-
-@media (max-width: 768px) {
-  .projects__grid {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .projects__horizontal-card {
+    flex-direction: column;
+  }
+  
+  .projects__image-container {
+    border-right: none;
+    border-bottom: 1px solid var(--bg-glass-border);
+    height: 250px;
   }
 }
