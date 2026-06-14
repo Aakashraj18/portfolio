@@ -82,7 +82,7 @@ export default function About() {
               CONTACT ME
             </a>
             <a
-              href="https://github.com/Aakashraj18"
+              href="https://drive.google.com/file/d/1xg5SViz4SKnXkfEFV3RMOK9ghVFa3LPG"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--secondary"
