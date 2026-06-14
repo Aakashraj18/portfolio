@@ -1,0 +1,53 @@
+.interactive-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0;
+  cursor: ew-resize; /* Indicate horizontal movement */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.interactive-marquee-scroller {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.interactive-marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px; /* Ensure consistent spacing */
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.interactive-marquee-item:hover {
+  transform: scale(1.15) translateY(-10px);
+}
+
+.interactive-marquee-icon {
+  font-size: 5rem; /* Large free-floating icons */
+  line-height: 1;
+  filter: drop-shadow(0 10px 20px rgba(108, 99, 255, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.interactive-marquee-item:hover .interactive-marquee-icon {
+  filter: drop-shadow(0 15px 30px rgba(0, 212, 170, 0.6));
+}
+
+.interactive-marquee-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: var(--font-primary);
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.interactive-marquee-item:hover .interactive-marquee-name {
+  color: var(--text-primary);
+}
