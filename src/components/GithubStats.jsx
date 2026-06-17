@@ -34,6 +34,16 @@ export default function GithubStats() {
             alt={`${githubUsername}'s Top Languages`}
           />
         </div>
+
+        <div 
+          className={`github-stats__chart github-stats__chart--full card ${isVisible ? 'reveal--visible' : 'reveal--hidden'}`}
+          style={{ '--reveal-delay': '0.5s' }}
+        >
+          <img
+            src={`https://github-readme-activity-graph.vercel.app/graph?username=${githubUsername}&theme=radical&bg_color=161623&hide_border=true&color=6c63ff`}
+            alt={`${githubUsername}'s GitHub Activity Graph`}
+          />
+        </div>
       </div>
 
     </section>
