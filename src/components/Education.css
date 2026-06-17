@@ -1,4 +1,4 @@
-/* --- Education Layout --- */
+/* --- Education Layout (Professional Version) --- */
 .education__header {
   text-align: center;
   margin-bottom: var(--space-4xl);
@@ -7,35 +7,46 @@
 .education__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   max-width: 800px;
   margin: 0 auto;
 }
 
 .education__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
   padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.education__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
 }
 
 .education__card-header {
   display: flex;
   align-items: center;
   gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  border-bottom: 1px solid var(--bg-glass-border);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
   padding-bottom: var(--space-md);
 }
 
 .education__logo-box {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--bg-secondary);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .education__title-box {
@@ -44,21 +55,21 @@
 }
 
 .education__inst {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .education__degree {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--accent-primary);
   margin: 0;
 }
 
 .education__card-body {
-  padding-left: calc(60px + var(--space-lg));
+  padding-left: calc(56px + var(--space-lg));
 }
 
 .education__meta {
@@ -69,7 +80,7 @@
 }
 
 .education__period {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   font-weight: 500;
   display: flex;
@@ -79,12 +90,12 @@
 
 .education__period::before {
   content: '📅';
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .education__grade {
-  font-size: 0.9rem;
-  color: var(--accent-secondary);
+  font-size: 0.85rem;
+  color: var(--text-primary);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -93,7 +104,7 @@
 
 .education__grade::before {
   content: '📈';
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .education__details {
@@ -107,7 +118,7 @@
 .education__details li {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {

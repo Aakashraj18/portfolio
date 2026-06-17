@@ -1,11 +1,11 @@
-/* --- What I Do Section --- */
+/* --- Skills Section (Professional Version) --- */
 .skills__hero-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3xl);
-  margin-bottom: 8rem; /* Generous bottom margin before tech stack */
-  max-width: 1200px;
+  margin-bottom: var(--space-4xl);
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -17,34 +17,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 500px; /* Responsive bounds */
-}
-
-.skills__video-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 110%;
-  height: 110%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(108, 99, 255, 0.5) 0%, rgba(108, 99, 255, 0) 70%);
-  filter: blur(40px);
-  z-index: -1;
-  border-radius: 50%;
-  animation: pulseGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulseGlow {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  max-width: 450px;
 }
 
 .skills__video-container {
   width: 100%;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  position: relative;
-  z-index: 1;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-card);
 }
 
 .skills__video {
@@ -53,6 +35,7 @@
   display: block;
   object-fit: cover;
   border-radius: inherit;
+  opacity: 0.9;
 }
 
 /* Right Side: Content */
@@ -63,26 +46,20 @@
 }
 
 .skills__heading {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-md);
-  font-family: var(--font-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 
 .skills__subheading {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 1.125rem;
+  font-weight: 500;
   margin-bottom: var(--space-xl);
-  background: linear-gradient(to right, var(--accent-primary), #00d4aa);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 3s linear infinite;
+  color: var(--accent-primary);
   text-transform: uppercase;
-  line-height: 1.4;
+  letter-spacing: 0.05em;
 }
 
 .skills__bullets-list {
@@ -97,7 +74,7 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -114,7 +91,6 @@
     flex-direction: column;
     text-align: center;
     gap: var(--space-2xl);
-    margin-bottom: 5rem;
   }
 
   .skills__video-wrapper {
@@ -135,20 +111,17 @@
 .skills__stack-heading {
   text-align: left;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-top: var(--space-3xl);
   margin-bottom: var(--space-xl);
-  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: shine 3s linear infinite;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--space-sm);
 }
 
 .skills__stack-heading.center-heading {
   text-align: center;
-  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .skills__marquee-section {
@@ -158,49 +131,15 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: var(--space-3xl);
+  margin-top: var(--space-2xl);
   padding-bottom: var(--space-xl);
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
-/* Bullet points */
-.skills__bullets {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.skills__bullet {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .skills__content {
-    flex-direction: column;
-    text-align: center;
-    transform: translateY(40px);
-  }
-
-  .skills__content--visible {
-    transform: translateY(0);
-  }
-
-  .skills__icons-grid {
-    justify-content: center;
-  }
-
-  .skills__terminal {
-    max-width: 100%;
-    transform: none;
-  }
-  
-  .skills__terminal:hover {
-    transform: translateY(-5px);
-  }
-
-  .skills__bullets {
-    text-align: left;
+  .skills__bullet-item {
+    font-size: 1rem;
   }
 }

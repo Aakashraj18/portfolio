@@ -1,4 +1,4 @@
-/* Header */
+/* --- Competitive Programming (Professional Version) --- */
 .cp {
   padding-top: var(--space-3xl);
 }
@@ -12,49 +12,30 @@
 .cp__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Premium Glassmorphism Card */
+/* Flat Professional Card */
 .cp__glass-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03); /* Extremely subtle dark semi-transparent */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
   padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
   overflow: hidden;
 }
 
-/* Hover effect transitions to platform's theme color */
+/* Hover effect with subtle transform */
 .cp__glass-card:hover {
   border-color: var(--theme-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Base shadow */
-}
-
-/* The glowing drop-shadow applied to the pseudo-element for performance and visual fidelity */
-.cp__glass-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: inherit;
-  box-shadow: 0 10px 40px var(--theme-color);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.cp__glass-card:hover::before {
-  opacity: 0.2; /* Subtly glow in theme color behind the card */
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 /* Header inside card */
@@ -63,11 +44,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--space-md);
 }
 
 .cp__platform-title {
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin: 0;
 }
@@ -77,21 +60,13 @@
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, background 0.3s ease;
-  /* Pulsing glow matching theme color */
-  animation: pulseIcon 2s infinite alternate;
+  transition: background var(--transition-fast);
 }
 
 .cp__icon-link:hover {
-  transform: scale(1.1);
   background: rgba(255, 255, 255, 0.1);
-}
-
-@keyframes pulseIcon {
-  0% { filter: drop-shadow(0 0 2px var(--theme-color)); }
-  100% { filter: drop-shadow(0 0 12px var(--theme-color)); }
 }
 
 /* Stats Layout */
@@ -108,16 +83,15 @@
 }
 
 .cp__stat-value {
-  font-size: 1.6rem;
-  font-weight: 800;
-  line-height: 1.1;
-  /* Theme color is applied via inline style */
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .cp__stat-label {
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
   text-transform: uppercase;
 }

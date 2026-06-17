@@ -1,4 +1,4 @@
-/* --- Achievements --- */
+/* --- Achievements (Professional Version) --- */
 .achievements__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -6,34 +6,32 @@
 }
 
 .achievements__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
   display: flex;
   gap: var(--space-lg);
   align-items: flex-start;
-  position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.achievements__card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: var(--ach-accent, var(--accent-primary));
-  border-radius: 0 3px 3px 0;
-  opacity: 0;
-  transition: opacity var(--transition-base);
-}
-
-.achievements__card:hover::before {
-  opacity: 1;
+.achievements__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ach-accent, var(--border-focus));
+  box-shadow: var(--shadow-md);
 }
 
 .achievements__icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   flex-shrink: 0;
   line-height: 1;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
 }
 
 .achievements__info {
@@ -43,20 +41,20 @@
 }
 
 .achievements__title {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
 .achievements__desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
 .achievements__date {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   margin-top: var(--space-xs);
 }
