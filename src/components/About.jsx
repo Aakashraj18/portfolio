@@ -1,4 +1,4 @@
-import heroImg from '../assets/developer_hero.jpg';
+import heroImg from '../assets/profile1.png';
 import './About.css';
 
 const socialLinks = [
