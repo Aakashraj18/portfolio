@@ -1,4 +1,4 @@
-/* --- GitHub Stats Layout (Professional Version) --- */
+/* --- GitHub Stats Layout (Modern Premium) --- */
 .github-stats__header {
   text-align: center;
   margin-bottom: var(--space-4xl);
@@ -18,16 +18,18 @@
   padding: 0;
   overflow: hidden;
   background: var(--bg-card);
+  backdrop-filter: blur(24px);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .github-stats__chart:hover {
   transform: translateY(-2px);
   border-color: var(--border-focus);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-glow-hover);
+  background: var(--bg-card-hover);
 }
 
 .github-stats__chart--full {
@@ -63,20 +65,20 @@
   padding-bottom: var(--space-sm);
 }
 
-/* Custom scrollbar for the wrapper in case it overflows on mobile */
+/* Custom scrollbar */
 .github-stats__chart-wrapper::-webkit-scrollbar {
   height: 6px;
 }
 .github-stats__chart-wrapper::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
 }
 .github-stats__chart-wrapper::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
 .github-stats__chart-wrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {

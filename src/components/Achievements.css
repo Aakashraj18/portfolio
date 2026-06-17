@@ -1,4 +1,4 @@
-/* --- Achievements (Professional Version) --- */
+/* --- Achievements (Modern Premium) --- */
 .achievements__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -7,30 +7,32 @@
 
 .achievements__card {
   background: var(--bg-card);
+  backdrop-filter: blur(24px);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl);
   display: flex;
   gap: var(--space-lg);
   align-items: flex-start;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .achievements__card:hover {
   transform: translateY(-2px);
-  border-color: var(--ach-accent, var(--border-focus));
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow-hover);
+  background: var(--bg-card-hover);
 }
 
 .achievements__icon {
   font-size: 1.8rem;
   flex-shrink: 0;
   line-height: 1;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
   padding: 12px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
 }
 
@@ -44,6 +46,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .achievements__desc {

@@ -1,4 +1,4 @@
-/* --- Competitive Programming (Professional Version) --- */
+/* --- Competitive Programming (Modern Premium) --- */
 .cp {
   padding-top: var(--space-3xl);
 }
@@ -17,25 +17,28 @@
   margin: 0 auto;
 }
 
-/* Flat Professional Card */
+/* Glassy Card */
 .cp__glass-card {
   background: var(--bg-card);
+  backdrop-filter: blur(24px);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+  transition: all var(--transition-base);
   overflow: hidden;
+  position: relative;
 }
 
-/* Hover effect with subtle transform */
+/* Hover effect with subtle glow */
 .cp__glass-card:hover {
-  border-color: var(--theme-color);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-glow-hover);
   transform: translateY(-2px);
+  background: var(--bg-card-hover);
 }
 
 /* Header inside card */
@@ -49,10 +52,11 @@
 }
 
 .cp__platform-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .cp__icon-link {
@@ -62,11 +66,14 @@
   padding: 8px;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.05);
-  transition: background var(--transition-fast);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
 }
 
 .cp__icon-link:hover {
   background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-light);
+  transform: scale(1.05);
 }
 
 /* Stats Layout */
@@ -83,14 +90,15 @@
 }
 
 .cp__stat-value {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
+  color: var(--text-primary);
 }
 
 .cp__stat-label {
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--text-secondary);
   text-transform: uppercase;

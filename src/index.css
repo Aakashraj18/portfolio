@@ -1,29 +1,31 @@
 /* ============================================
    DESIGN SYSTEM — Aakash Kumar Rajak Portfolio
-   (Professional, Clean, Corporate)
+   (Modern Premium / Vercel-Linear Aesthetic)
    ============================================ */
 
 /* --- CSS Custom Properties (Tokens) --- */
 :root {
-  /* Color Palette — Professional Dark Theme */
-  --bg-primary: #0f172a; /* Slate 900 */
-  --bg-secondary: #0b1120; /* Slate 950 */
-  --bg-card: #1e293b; /* Slate 800 */
-  --bg-card-hover: #334155; /* Slate 700 */
+  /* Color Palette — True Pitch Black Theme */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: rgba(20, 20, 20, 0.4);
+  --bg-card-hover: rgba(30, 30, 30, 0.6);
   
-  /* Borders */
-  --border-light: rgba(255, 255, 255, 0.08);
-  --border-focus: #3b82f6;
+  /* Hairline Borders */
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-focus: rgba(255, 255, 255, 0.25);
+  --border-accent: rgba(226, 232, 240, 0.15);
 
-  /* Accent Colors */
-  --accent-primary: #3b82f6; /* Blue 500 */
-  --accent-primary-hover: #2563eb; /* Blue 600 */
-  --accent-secondary: #0ea5e9; /* Sky 500 */
+  /* Accent Colors (Sharp & Desaturated) */
+  --accent-primary: #ededed; /* Near white for modern stark contrast */
+  --accent-primary-hover: #ffffff;
+  --accent-subtle: #333333;
+  --theme-color: #8b5cf6; /* A sharp violet for very rare tiny accents */
 
   /* Text Colors */
-  --text-primary: #f8fafc; /* Slate 50 */
-  --text-secondary: #94a3b8; /* Slate 400 */
-  --text-muted: #64748b; /* Slate 500 */
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa; /* Zinc 400 */
+  --text-muted: #71717a; /* Zinc 500 */
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -42,23 +44,24 @@
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
-  /* Shadows - Subtle and professional */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* Shadows - Ambient & Deep */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 0 1px var(--border-light), 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-glow-hover: 0 0 0 1px var(--border-focus), 0 12px 40px rgba(0, 0, 0, 0.7);
 
   /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-base: 250ms ease-in-out;
-  --transition-slow: 400ms ease-in-out;
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Layout */
   --max-width: 1100px;
-  --header-height: 70px;
+  --header-height: 80px;
 }
 
 /* --- Global Reset & Base Styles --- */
@@ -73,6 +76,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  background-color: var(--bg-primary);
 }
 
 body {
@@ -83,6 +87,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Very subtle noise texture for premium feel */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
 }
 
 #root {
@@ -97,7 +103,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-secondary);
+  color: var(--accent-primary-hover);
 }
 
 img {
@@ -123,12 +129,15 @@ ul {
 }
 
 .section__title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: var(--space-sm);
-  color: var(--text-primary);
-  display: block;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .section__subtitle {
@@ -136,43 +145,46 @@ ul {
   color: var(--text-secondary);
   margin-bottom: var(--space-3xl);
   max-width: 600px;
+  font-weight: 400;
 }
 
-/* --- Card Base --- */
+/* --- Premium Glass Card Base --- */
 .card {
   background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: var(--space-xl);
-  transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  transition: all var(--transition-base);
   box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  background: var(--bg-card-hover);
   border-color: var(--border-focus);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-glow-hover);
+  transform: translateY(-2px);
 }
 
 /* --- Tag / Chip Base --- */
 .tag {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-secondary);
   border: 1px solid var(--border-light);
   transition: all var(--transition-fast);
 }
 
 .tag:hover {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--accent-primary);
-  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: var(--border-focus);
 }
 
 /* --- Button Base --- */
@@ -182,44 +194,44 @@ ul {
   justify-content: center;
   gap: var(--space-sm);
   padding: 10px 24px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   font-family: var(--font-primary);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  border: 1px solid transparent;
   transition: all var(--transition-fast);
   text-decoration: none;
 }
 
 .btn--primary {
   background-color: var(--accent-primary);
-  color: #ffffff;
+  color: #000000;
+  border: 1px solid transparent;
 }
 
 .btn--primary:hover {
   background-color: var(--accent-primary-hover);
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .btn--outline {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
   color: var(--text-primary);
-  border-color: var(--border-light);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(8px);
 }
 
 .btn--outline:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: var(--text-secondary);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-focus);
 }
 
-/* --- Scroll Reveal Animations (Subtle version) --- */
+/* --- Scroll Reveal Animations --- */
 .reveal--hidden {
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: var(--reveal-delay, 0s);
 }
 
@@ -234,7 +246,7 @@ ul {
     padding: var(--space-3xl) var(--space-md);
   }
   .section__title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 
