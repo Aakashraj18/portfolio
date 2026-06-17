@@ -1,4 +1,3 @@
-import heroImg from '../assets/profile1.png';
 import './About.css';
 
 const socialLinks = [
@@ -25,7 +24,7 @@ const socialLinks = [
   {
     href: 'mailto:akashkrrajak18@gmail.com',
     label: 'Email',
-    color: '#d14836',
+    color: '#ea4335',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -51,13 +50,10 @@ export default function About() {
       <div className="about__content">
         <div className="about__text">
           <h1 className="about__greeting">
-            Hi all, I'm Aakash 👋
+            Hi, I'm Aakash
           </h1>
           <p className="about__description">
-            A passionate <span className="gradient-text">Full Stack Developer</span> 🚀 with experience building Web applications
-            using JavaScript / React / Node.js / MongoDB and the MERN stack. Currently pursuing
-            B.Tech in Computer Science at NIT Silchar with a knack for competitive programming
-            and solving complex algorithmic problems.
+            Crafting high-performance web experiences with the <span className="gradient-text">MERN Stack</span> and solving complex algorithmic challenges as a Competitive Programmer. Based at NIT Silchar.
           </p>
 
           <div className="about__socials">
@@ -78,23 +74,45 @@ export default function About() {
           </div>
 
           <div className="about__cta">
-            <a href="#contact" className="btn btn--primary" id="about-contact-btn">
-              CONTACT ME
+            <a href="#contact" className="btn btn--glow" id="about-contact-btn">
+              Contact Me
             </a>
             <a
               href="https://drive.google.com/file/d/1xg5SViz4SKnXkfEFV3RMOK9ghVFa3LPG"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn--secondary"
+              className="btn btn--outline-glow"
               id="about-resume-btn"
             >
-              SEE MY RESUME
+              See My Resume
             </a>
           </div>
         </div>
 
-        <div className="about__image">
-          <img src={heroImg} alt="Developer illustration" />
+        <div className="about__code-window">
+          <div className="code-window__header">
+            <div className="code-window__dots">
+              <span className="dot dot--red"></span>
+              <span className="dot dot--yellow"></span>
+              <span className="dot dot--green"></span>
+            </div>
+            <div className="code-window__title">developer.js</div>
+          </div>
+          <div className="code-window__body">
+            <pre>
+              <code>
+                <span className="code-keyword">const</span> <span className="code-variable">engineer</span> <span className="code-operator">=</span> {'{'}
+                {'\n'}  <span className="code-property">name</span>: <span className="code-string">"Aakash Kumar Rajak"</span>,
+                {'\n'}  <span className="code-property">role</span>: <span className="code-string">"Full Stack Developer"</span>,
+                {'\n'}  <span className="code-property">techStack</span>: [<span className="code-string">"MongoDB"</span>, <span className="code-string">"Express"</span>, <span className="code-string">"React"</span>, <span className="code-string">"Node.js"</span>],
+                {'\n'}  <span className="code-property">passions</span>: [<span className="code-string">"Competitive Programming"</span>, <span className="code-string">"Building Sleek UIs"</span>],
+                {'\n'}  <span className="code-property">isAvailableForHire</span>: <span className="code-boolean">true</span>
+                {'\n'}{'};'}
+                {'\n\n'}
+                <span className="code-variable">engineer</span>.<span className="code-method">buildAwesomeThings</span>();
+              </code>
+            </pre>
+          </div>
         </div>
       </div>
     </section>
