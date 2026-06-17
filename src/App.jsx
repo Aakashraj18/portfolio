@@ -1,4 +1,3 @@
-import HeroSection from './components/HeroSection';
 import Header from './components/Header';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -17,7 +16,6 @@ export default function App() {
     <div className="app">
       <AnimatedBackground />
       <Header />
-      <HeroSection />
       <motion.main
         animate={{ y: [0, -12, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
